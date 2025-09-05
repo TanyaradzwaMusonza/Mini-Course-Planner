@@ -147,7 +147,10 @@ function enableLecturerMode() {
     const showFavoritesOnly = favoritesOnlyFilter.checked;
     const showCompletedOnly = completedOnlyFilter.checked; // ✅ new
 
-    const coursesToFilter = isLecturer ? localCourses : allCourses;
+    const coursesToFilter = isLecturer 
+  ? localCourses 
+  : [...allCourses, ...localCourses];
+
 
     const filteredCourses = coursesToFilter.filter((course) => {
       const matchesSearch =
@@ -394,8 +397,13 @@ function enableLecturerMode() {
 
   function renderCourses(coursesToRender) {
   yourCoursesContainer.innerHTML = "";
+  
   if (!coursesToRender || coursesToRender.length === 0) {
-    yourCoursesContainer.innerHTML = `<div style="text-align:center;padding:40px;color:#666;"><h3>No courses found</h3></div>`;
+    yourCoursesContainer.innerHTML = `
+      <div class="empty-state">
+        <h3>No courses found</h3>
+      </div>
+    `;
     return;
   }
 
