@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Course Planner</title>
+  <link rel="stylesheet" href="pressure.css" />
+  
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash">
+    <div class="logo-circle">
+      <span>MCP</span>
+      <div class="spinner"></div>
+    </div>
+    <h1>Mini Course Planner</h1>
+    <p>Loading...</p>
+  </div>
+
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <label for="sidebarToggle" id="menuToggle" class="sidebar-hamburger">☰</label>
+        <h1 class="header-title">Mini Course Planner</h1>
+      </div>
+      <div class="header-controls">
+        <input type="search" placeholder="Search" />
+        <button id="toggle-btn">🌙</button>
+        <button id="toggleMode">Lecturer Mode: OFF</button>
+      </div>
+      
+    </div>
+    
+  </header>
+
+  <input type="checkbox" id="sidebarToggle" hidden />
+  <label for="sidebarToggle" class="overlay"></label>
+
+  <aside id="sidebar" class="sidebar">
+    <h3>Filters</h3>
+    <div class="filter-group">
+      <label for="categoryFilter">Category:</label>
+      <select id="categoryFilter">
+        <option value="">All</option>
+        <option value="Design">Design</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Cyber Security">Cyber Security</option>
+        <option value="Digital Marketing">Digital Marketing</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="levelFilter">Level:</label>
+      <select id="levelFilter">
+        <option value="">All</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <div class="check">
+
+        <label for="favoritesOnly">Favorites only</label>
+        <input type="checkbox" id="favoritesOnly" />
+      </div>
+      <label>
+        <div class="check">
+
+        <label for="completed courses">Completed Courses</label>
+        <input type="checkbox" id="completedOnly" />
+      </div>
+      <label>
+
+
+  
+
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="card">
+      <div class="card-content">
+        <h3>Total Courses</h3>
+        <h2>0</h2>
+        <p>Active learning path</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h3>Average Progress</h3>
+        <h2 class="h4">0%</h2>
+        <p>Across all courses</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h3>Completed</h3>
+        <h2>0</h2>
+        <p>Course finished</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="sidebarFavorites"></div>
+
+  <section class="create">
+    <div class="create-header">
+      <div class="create-text">
+        <h2>Your Courses</h2>
+        <p>Manage and track your learning project</p>
+      </div>
+      <button id="openBtn">+ Create Course</button>
+    </div>
+
+    <div id="yourCoursesContainer"></div>
+
+    <div id="create-card" class="create-card">
+      <div class="create-card-content">
+        <span id="closeBtn" aria-label="Close modal">×</span>
+        <h2>Create New Course</h2>
+        <form>
+          <p>Design your mini course with lessons and track progress</p>
+          <div class="input">
+            <label for="courseTitle">Course Title
+              <input type="text" id="courseTitle" placeholder="Enter course title" />
+            </label>
+            <label for="category">Category
+              <select id="category">
+                <option value="">Choose Category</option>
+                <option value="Design">Design</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Cyber Security">Cyber Security</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+              </select>
+            </label>
+            <label for="level">Level
+              <select id="level">
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </select>
+            </label>
+            <label for="duration">Duration (minutes)
+              <input type="number" id="duration" min="1" placeholder="Enter time in minutes" />
+            </label>
+            <label for="description">Description
+              <textarea id="description" placeholder="Describe what students will learn"></textarea>
+            </label>
+          </div>
+
+          <h3>Lessons</h3>
+          <div class="lesson">
+            <div class="lesson-actions">
+              <button type="button" id="addLessonBtn">+ Add Lesson</button>
+            </div>
+            <div id="lessonsDropdown" class="lessons-dropdown">
+              <div id="lessonsContainer"></div>
+              <label for="lessonTitle">Lesson Title
+                <input type="text" id="lessonTitle" placeholder="Enter lesson title" />
+              </label>
+              <label for="lessonDuration">Lesson Duration (minutes)
+                <input type="number" id="lessonDuration" min="1" placeholder="Enter time in minutes" />
+              </label>
+              <button type="button" id="saveLessonBtn">Save Lesson</button>
+            </div>
+          </div>
+
+          <button type="submit">Create Course</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div id="videoModal" class="video-modal">
+    <div class="video-modal-content">
+      <span id="closeVideoModal">&times;</span>
+      <div id="videoModalContent"></div>
+    </div>
+  </div>
+  
+ 
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#">Help</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+      <p>© 2025 Mini Course Planner. All rights reserved. Created by TRM</p>
+    </div>
+  </footer>
+
+  <script src="pressure.js"></script>
+  <script src="courses.js"></script>
+  
+
+  </script>
+  
+</body>
+</html>
