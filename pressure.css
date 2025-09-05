@@ -19,10 +19,12 @@ body {
   min-height: 100vh;
 }
 
+
 body.dark-mode {
   background-color: #111;
   color: white;
 }
+
     #splash {
       position: fixed;
       top: 0; left: 0;
@@ -648,6 +650,7 @@ select {
   flex-shrink: 0;
   position: sticky;
   margin-top: 158px;
+  z-index: 1000;
   
 }
 .footer a {
@@ -840,4 +843,18 @@ select {
   }
 }
 
+#yourCoursesContainer {
+  min-height: 200px; /* fallback */
+  display: flex;
+  flex-direction: column;
+}
 
+#yourCoursesContainer .empty-state {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  font-size: 1.2rem;
+  padding: 40px;
+}
